@@ -1,0 +1,773 @@
+Program.Sub.ScreenSU.Start
+Gui.SS_Form1..create
+Gui.SS_Form1..caption("AP Aging Excel")
+Gui.SS_Form1..size(5020,3440)
+Gui.SS_Form1..position(0,0)
+Gui.SS_Form1..alwaysontop(False)
+Gui.SS_Form1..fontname("Arial")
+Gui.SS_Form1..fontsize(8)
+Gui.SS_Form1..forecolor(0)
+Gui.SS_Form1..fontstyle(,)
+Gui.SS_Form1..BackColor(-2147483633)
+Gui.SS_Form1..controlbox(True)
+Gui.SS_Form1..maxbutton(False)
+Gui.SS_Form1..minbutton(False)
+Gui.SS_Form1..mousepointer(0)
+Gui.SS_Form1..moveable(True)
+Gui.SS_Form1..sizeable(False)
+Gui.SS_Form1..ShowInTaskBar(True)
+Gui.SS_Form1..titlebar(True)
+Gui.SS_Form1..MinX(0)
+Gui.SS_Form1..MinY(0)
+Gui.SS_Form1..Event(UnLoad,SS_Form1_UnLoad)
+Gui.SS_Form1.lbl_dtpCutoff.create(label,"Post Date Cutoff",True,1800,200,1,100,135,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_dtpCutoff.LabelStretch(True)
+Gui.SS_Form1.dtpCutoff.create(datepicker)
+Gui.SS_Form1.dtpCutoff.visible(True)
+Gui.SS_Form1.dtpCutoff.size(1800,345)
+Gui.SS_Form1.dtpCutoff.position(100,335)
+Gui.SS_Form1.dtpCutoff.enabled(True)
+Gui.SS_Form1.dtpCutoff.fontname("Arial")
+Gui.SS_Form1.dtpCutoff.tabstop(True)
+Gui.SS_Form1.dtpCutoff.tabindex(1)
+Gui.SS_Form1.lbl_txtFromV.create(label,"From Vendor",True,1800,200,1,100,765,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_txtFromV.LabelStretch(True)
+Gui.SS_Form1.txtFromV.create(textbox,"",True,1800,330,1,100,965,True,0,Arial,8,16777215,1)
+Gui.SS_Form1.txtFromV.tabstop(True)
+Gui.SS_Form1.txtFromV.tabindex(2)
+Gui.SS_Form1.cmd_txtFromV.create(button)
+Gui.SS_Form1.cmd_txtFromV.Caption("^")
+Gui.SS_Form1.cmd_txtFromV.visible(True)
+Gui.SS_Form1.cmd_txtFromV.size(330,330)
+Gui.SS_Form1.cmd_txtFromV.position(1980,960)
+Gui.SS_Form1.cmd_txtFromV.enabled(True)
+Gui.SS_Form1.cmd_txtFromV.fontname("Arial")
+Gui.SS_Form1.cmd_txtFromV.fontsize(8)
+Gui.SS_Form1.cmd_txtFromV.tabstop(True)
+Gui.SS_Form1.cmd_txtFromV.tabindex(3)
+Gui.SS_Form1.cmd_txtFromV.Event(Click,cmd_txtFromV_Click)
+Gui.SS_Form1.lbl_txtToV.create(label,"To Vendor",True,1800,200,1,2455,765,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_txtToV.LabelStretch(True)
+Gui.SS_Form1.txtToV.create(textbox,"",True,1800,330,1,2455,965,True,0,Arial,8,16777215,1)
+Gui.SS_Form1.txtToV.tabstop(True)
+Gui.SS_Form1.txtToV.tabindex(4)
+Gui.SS_Form1.cmd_txtToV.create(button)
+Gui.SS_Form1.cmd_txtToV.Caption("^")
+Gui.SS_Form1.cmd_txtToV.visible(True)
+Gui.SS_Form1.cmd_txtToV.size(330,330)
+Gui.SS_Form1.cmd_txtToV.position(4335,960)
+Gui.SS_Form1.cmd_txtToV.enabled(True)
+Gui.SS_Form1.cmd_txtToV.fontname("Arial")
+Gui.SS_Form1.cmd_txtToV.fontsize(8)
+Gui.SS_Form1.cmd_txtToV.tabstop(True)
+Gui.SS_Form1.cmd_txtToV.tabindex(5)
+Gui.SS_Form1.cmd_txtToV.Event(Click,cmd_txtToV_Click)
+Gui.SS_Form1.chkAllV.create(checkbox)
+Gui.SS_Form1.chkAllV.Caption("All Vendors")
+Gui.SS_Form1.chkAllV.visible(True)
+Gui.SS_Form1.chkAllV.size(1800,300)
+Gui.SS_Form1.chkAllV.position(105,1305)
+Gui.SS_Form1.chkAllV.enabled(True)
+Gui.SS_Form1.chkAllV.fontname("Arial")
+Gui.SS_Form1.chkAllV.fontsize(8)
+Gui.SS_Form1.chkAllV.tabstop(True)
+Gui.SS_Form1.chkAllV.tabindex(6)
+Gui.SS_Form1.chkAllV.Event(Click,chkAllV_Click)
+Gui.SS_Form1.lbl_ddlReportType.create(label,"Report Type",True,1800,200,1,100,1850,True,0,Arial,8,-2147483633,0)
+Gui.SS_Form1.lbl_ddlReportType.LabelStretch(True)
+Gui.SS_Form1.ddlReportType.create(dropdownlist)
+Gui.SS_Form1.ddlReportType.visible(True)
+Gui.SS_Form1.ddlReportType.size(1800,330)
+Gui.SS_Form1.ddlReportType.position(100,2050)
+Gui.SS_Form1.ddlReportType.enabled(True)
+Gui.SS_Form1.ddlReportType.fontname("Arial")
+Gui.SS_Form1.ddlReportType.fontsize(8)
+Gui.SS_Form1.ddlReportType.tabstop(True)
+Gui.SS_Form1.ddlReportType.tabindex(7)
+Gui.SS_Form1.cmdOk.create(button)
+Gui.SS_Form1.cmdOk.Caption("Ok")
+Gui.SS_Form1.cmdOk.visible(True)
+Gui.SS_Form1.cmdOk.size(1005,360)
+Gui.SS_Form1.cmdOk.position(105,2460)
+Gui.SS_Form1.cmdOk.enabled(True)
+Gui.SS_Form1.cmdOk.fontname("Arial")
+Gui.SS_Form1.cmdOk.fontsize(8)
+Gui.SS_Form1.cmdOk.tabstop(True)
+Gui.SS_Form1.cmdOk.tabindex(8)
+Gui.SS_Form1.cmdOk.Event(Click,cmdOk_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+f.ODBC.Connection!Con.OpenConnection(v.Ambient.PDSN,v.Ambient.PUser,v.Ambient.PPass)
+
+Gui.SS_Form1.ddlReportType.AddItem("Detail")
+Gui.SS_Form1.ddlReportType.AddItem("Summary")
+
+F.Data.Dictionary.CreateFromSQL("Ven","Con","SELECT Vendor, VENDOR FROM V_VENDOR_MASTER ORDER BY VENDOR ASC",18)
+F.Data.Dictionary.SetDefaultReturn("Ven","No Vendors")
+Gui.SS_Form1.txtFromV.AddAutoCompleteItem("Ven",dictionary)
+Gui.SS_Form1.txtToV.AddAutoCompleteItem("Ven",dictionary)
+
+Gui.SS_Form1..Show
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4140_AP_Aging_Export.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Main.End
+
+Program.Sub.cmdOk_Click.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sAll.Declare(string)
+
+'check to see if All Vendors is checked, if it isn't then make sure somethign is entered
+f.Intrinsic.Control.If(v.Screen.SS_Form1!chkAllV.Value,=,0)
+	'check to see if From is empty
+	f.Intrinsic.Control.If(v.Screen.SS_Form1!txtFromV.Text,=,"")
+		'it is blank so tell them they need to enter something
+		f.Intrinsic.UI.Msgbox("Vendor From field has not been entered. Please select a Vendor.","Attention")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	'check to see if To vendor is empty
+	f.Intrinsic.Control.If(v.Screen.SS_Form1!txtToV.Text,=,"")
+		'it is blank so tell them they need to enter somethign
+		f.Intrinsic.UI.Msgbox("Vendor To field has not been entered. Please select a Vendor.","Attention")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	'check to see if Type is chosen
+	f.Intrinsic.Control.If(v.Screen.SS_Form1!ddlReportType.Text,=,"")
+		'it is blank so tell them they need to enter something
+		f.Intrinsic.UI.Msgbox("Type has not been chosen. Please select a Type.","Attention")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	'hide the screen
+	Gui.SS_Form1..Visible(False)
+	
+	'check to see if detail or summary
+	f.Intrinsic.Control.If(v.Screen.SS_Form1!ddlReportType.Text,=,"Detail")
+		'we have gotten this far so pass to the create file sub
+		f.Intrinsic.Control.CallSub(createfiledetail,"ALL","False")
+	f.Intrinsic.Control.Else
+		'summary report
+		f.Intrinsic.Control.CallSub(createfilesummary,"ALL","False")
+	f.Intrinsic.Control.EndIf
+	
+'All vendors is not checked 
+f.Intrinsic.Control.Else
+	'check to make sure Type is chosen
+	f.Intrinsic.Control.If(v.Screen.SS_Form1!ddlReportType.Text,=,"")
+		'it is blank so tell them they need to enter something
+		f.Intrinsic.UI.Msgbox("Type has not been chosen. Please select a Type.","Attention")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	'hide the screen
+	Gui.SS_Form1..Visible(False)
+	
+	'check to see if detail or summary
+	f.Intrinsic.Control.If(v.Screen.SS_Form1!ddlReportType.Text,=,"Detail")
+		'we have gotten this far so pass to the create file sub
+		f.Intrinsic.Control.CallSub(createfiledetail,"ALL","True")
+	f.Intrinsic.Control.Else
+		'summary report
+		f.Intrinsic.Control.CallSub(createfilesummary,"ALL","True")
+	f.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4140_AP_Aging_Export.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdOk_Click.End
+
+Program.Sub.SS_Form1_UnLoad.Start
+F.Intrinsic.Control.SetErrorHandler("cmdOk_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+f.ODBC.Connection!Con.Close
+f.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdOk_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4140_AP_Aging_Export.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+Program.Sub.SS_Form1_UnLoad.End
+
+Program.Sub.cmd_txtFromV_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdOk_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sRet.Declare(string)
+v.Local.sTitle.Declare(string)
+v.Local.iWidth.Declare(long)
+
+f.Intrinsic.String.Split("Vendor Number*!*Vendor Name","*!*",v.Local.sTitle)
+f.Intrinsic.String.Split("1000*!*2000","*!*",v.Local.iWidth)
+
+f.Intrinsic.UI.Browser("Vendors","Con","SELECT VENDOR, NAME_VENDOR FROM V_VENDOR_MASTER ORDER BY VENDOR ASC",V.Local.sTitle,v.Local.iWidth,v.Local.sRet)
+f.Intrinsic.Control.If(v.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	V.Local.sRet.RedimPreserve(0,1)
+	GUI.SS_Form1.txtFromV.Text(V.Local.sRet(0).Trim)
+	GUI.SS_Form1.txtToV.Text(V.Local.sRet(0).Trim)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdOk_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4140_AP_Aging_Export.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmd_txtFromV_Click.End
+
+Program.Sub.cmd_txtToV_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_txtFromV_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sRet.Declare(string)
+v.Local.sTitle.Declare(string)
+v.Local.iWidth.Declare(long)
+
+f.Intrinsic.String.Split("Vendor Number*!*Vendor Name","*!*",v.Local.sTitle)
+f.Intrinsic.String.Split("1000*!*2000","*!*",v.Local.iWidth)
+
+f.Intrinsic.UI.Browser("Vendors","Con","SELECT VENDOR, NAME_VENDOR FROM V_VENDOR_MASTER ORDER BY VENDOR ASC",V.Local.sTitle,v.Local.iWidth,v.Local.sRet)
+f.Intrinsic.Control.If(v.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	V.Local.sRet.RedimPreserve(0,1)
+	GUI.SS_Form1.txtToV.Text(V.Local.sRet(0).Trim)
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_txtFromV_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4140_AP_Aging_Export.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmd_txtToV_Click.End
+
+Program.Sub.chkAllV_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmd_txtToV_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Checkbox was clicked so if it it set to 1 then disable the text boxes and browsers and delete the text boxes
+f.Intrinsic.Control.If(v.Screen.SS_Form1!chkAllV.Value,=,1)
+	Gui.SS_Form1.txtFromV.Text("")
+	Gui.SS_Form1.txtToV.Text("")
+	Gui.SS_Form1.txtFromV.Enabled(false)
+	Gui.SS_Form1.cmd_txtFromV.Enabled(false)
+	Gui.SS_Form1.txtToV.Enabled(false)
+	Gui.SS_Form1.cmd_txtToV.Enabled(false)
+f.Intrinsic.Control.Else
+	Gui.SS_Form1.txtFromV.Enabled(true)
+	Gui.SS_Form1.cmd_txtFromV.Enabled(true)
+	Gui.SS_Form1.txtToV.Enabled(true)
+	Gui.SS_Form1.cmd_txtToV.Enabled(true)
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_txtToV_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4140_AP_Aging_Export.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.chkAllV_Click.End
+
+Program.Sub.CreateFileDetail.Start
+F.Intrinsic.Control.SetErrorHandler("CreateFile_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sAll.Declare(string)
+v.Local.sSQL.Declare(string)
+v.Local.sVend.Declare(string)
+v.Local.iCount.Declare(long)
+v.Local.sFilter.Declare(string)
+v.Local.sFileData.Declare(string)
+V.Local.sVenName.Declare(string)
+v.Local.sView.Declare(string)
+v.Local.iView.Declare(string)
+v.Local.sLine.Declare(string)
+v.Local.iDays.Declare(long)
+v.Local.fCurrent.Declare(float)
+v.Local.fThirtyOne.Declare(float)
+v.Local.fSixtyOne.Declare(float)
+v.Local.fNinetyOne.Declare(float)
+v.Local.fOver.Declare(float)
+v.Local.fTCurrent.Declare(float)
+v.Local.fTThirtyOne.Declare(float)
+v.Local.fTSixtyOne.Declare(float)
+v.Local.fTNinetyOne.Declare(float)
+v.Local.fTOver.Declare(float)
+v.Local.sFileRet.Declare(string)
+V.Local.fTotalAmt.Declare(float)
+
+
+'set the passed variable
+v.Local.sAll.Set(v.Args.ALL)
+
+
+'Create the SQL based on all or range
+f.Intrinsic.Control.If(v.Local.sAll,=,"False")
+	f.Intrinsic.String.Build("SELECT VENDOR, INVOICE, BATCH_CODE, DATE_INVOICE, DATE_INVOICE_DUE, AMT_INVOICE FROM V_AP_OPEN_ITEMS  WHERE BATCH_CODE <> '09' AND DATE_BATCH <= '{0}' AND VENDOR BETWEEN '{1}' AND '{2}' ORDER BY VENDOR ASC, DATE_INVOICE_DUE ASC",v.Screen.SS_Form1!dtpCutoff.Value.PervasiveDate,V.Screen.SS_Form1!txtFromV.Text.Trim,v.Screen.SS_Form1!txtToV.Text.Trim,v.Local.sSQL)
+	f.Intrinsic.String.Build("SELECT DISTINCT VENDOR FROM V_AP_OPEN_ITEMS WHERE BATCH_CODE <> '09' AND DATE_BATCH <= '{0}' AND VENDOR BETWEEN '{1}' AND '{2}' ORDER BY VENDOR ASC",v.Screen.SS_Form1!dtpCutoff.Value.PervasiveDate,V.Screen.SS_Form1!txtFromV.Text.Trim,v.Screen.SS_Form1!txtToV.Text.Trim,V.Local.sVend)
+f.Intrinsic.Control.Else
+	f.Intrinsic.String.Build("SELECT VENDOR, INVOICE, BATCH_CODE, DATE_INVOICE, DATE_INVOICE_DUE, AMT_INVOICE FROM V_AP_OPEN_ITEMS  WHERE BATCH_CODE <> '09' AND DATE_BATCH <= '{0}' ORDER BY VENDOR ASC, DATE_INVOICE_DUE ASC",v.Screen.SS_Form1!dtpCutoff.Value.PervasiveDate,v.Local.sSQL)
+	F.Intrinsic.String.Build("SELECT DISTINCT VENDOR FROM V_AP_OPEN_ITEMS WHERE BATCH_CODE <> '09' AND DATE_BATCH <= '{0}' ORDER BY VENDOR ASC",v.Screen.SS_Form1!dtpCutoff.Value.PervasiveDate,V.Local.sVend)
+F.Intrinsic.Control.EndIf
+
+'create the inital datatable
+F.Data.DataTable.CreateFromSQL("APOpen","Con",v.Local.sSQL,true)
+
+'Create an Array of vendors to loop through
+f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sVend,v.Local.sVend)
+
+'check to make sure we have something in our dictionary
+f.Intrinsic.Control.If(v.Local.sVend.Trim,<>,"")
+	'remove the *!*
+	f.Intrinsic.String.Replace(v.Local.sVend,"*!*","",v.Local.sVend)
+	'split rows
+	f.Intrinsic.String.Split(v.Local.sVend,"#$#",v.Local.sVend)
+	'we are going to loop through our vendors and create views from the APOpen table
+	f.Intrinsic.Control.For(v.Local.iCount,v.Local.sVend.LBound,v.Local.sVend.UBound,1)
+		'get the Vendor name
+		f.Intrinsic.String.Build("SELECT NAME_VENDOR FROM V_VENDOR_MASTER WHERE VENDOR = '{0}' ",V.Local.sVend(V.Local.iCount).Trim,V.Local.sSQL)
+		f.ODBC.Connection!Con.OpenLocalRecordsetRO("rstVen",v.Local.sSQL)
+		f.Intrinsic.Control.If(v.ODBC.Con!rstVen.EOF,=,false)
+			v.Local.sVenName.Set(v.ODBC.Con!rstVen.FieldValTrim!NAME_VENDOR)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.Con!rstVen.Close
+		'Build the header for the group
+		f.Intrinsic.Control.If(v.Local.sFileData,=,"")
+			f.Intrinsic.String.Build("{0}*!*{1}*!**!**!**!**!**!**!**!**!*",v.Local.sVend(v.Local.iCount).Trim,v.Local.sVenName,v.Local.sFileData)
+		f.Intrinsic.Control.Else
+			f.Intrinsic.String.Build("{0}$!${1}*!*{2}*!**!**!**!**!**!**!**!**!*",V.Local.sFileData,v.Local.sVend(v.Local.iCount).Trim,v.Local.sVenName,v.Local.sFileData)
+		f.Intrinsic.Control.EndIf
+		'Create a view for individual vendors
+		f.Intrinsic.String.Build("VENDOR = '{0}'",V.Local.sVend(V.Local.iCount).Trim,V.Local.sFilter)
+		f.Data.DataView.Create("APOpen",v.Local.sVend(v.Local.iCount).Trim,22,V.Local.sFilter,"DATE_INVOICE_DUE ASC, BATCH_CODE ASC")
+		'Make the view to string
+		f.Data.DataView.ToString("APOpen",v.Local.sVend(v.Local.iCount).Trim,"INVOICE*!*DATE_INVOICE*!*DATE_INVOICE_DUE*!*AMT_INVOICE*!*BATCH_CODE","*!*","#$#",V.Local.sView)
+		'split the string on row and cycle through them
+		
+
+		f.Intrinsic.String.Split(v.Local.sView,"#$#",v.Local.sView)
+		f.Intrinsic.Control.For(v.Local.iView,v.Local.sView.LBound,v.Local.sView.UBound,1)
+			'split the line out
+			f.Intrinsic.String.Split(v.Local.sView(v.Local.iView),"*!*",v.Local.sLine)
+			v.Local.sLine.RedimPreserve(0,4)
+			'lets calculate which aging bucket it goes into
+			f.Intrinsic.Date.DateDiff("d",v.Local.sLine(2),v.Ambient.Date,v.Local.iDays)
+			'how amount of days determine what bucket it goes into
+'			f.Intrinsic.Control.SelectCase(v.Local.iDays)
+	
+				'between 0 and 30
+'				f.Intrinsic.Control.CaseRange(0,30)
+				f.Intrinsic.Control.If(V.Local.iDays,<=,30)
+					'put invoice number, date_invoice, date_invoice_due, amt_invoice, and current
+					f.Intrinsic.String.Build("{0}$!$*!*{1}*!**!*{2}*!*{3}*!*{4}*!*{4}*!**!**!**!*",v.Local.sFileData,v.Local.sLine(0).Trim,v.Local.sLine(1).Trim,v.Local.sLine(2).Trim,v.Local.sLine(3).Trim,v.Local.sFileData)
+					'if the batch code is 10 then we add to our total, if it is 11 then we subtract
+					f.Intrinsic.Control.If(v.Local.sLine(4),=,10)
+						f.Intrinsic.Math.Add(v.Local.fCurrent,v.Local.sLine(3).Float,v.Local.fCurrent)
+						f.Intrinsic.Math.Add(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+					f.Intrinsic.Control.Else
+						f.Intrinsic.Math.Sub(v.Local.fCurrent,v.Local.sLine(3).Float,v.Local.fCurrent)
+						f.Intrinsic.Math.Sub(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+					f.Intrinsic.Control.EndIf
+'				f.Intrinsic.Control.CaseRange(31,60)
+				F.Intrinsic.Control.ElseIf(V.Local.iDays,>=,31,"AND",V.Local.iDays,<=,60)
+					'put invoice number, date_invoice, date_invoice_due, amt_invoice, and 31-60
+					f.Intrinsic.String.Build("{0}$!$*!*{1}*!**!*{2}*!*{3}*!*{4}*!**!*{4}*!**!**!*",v.Local.sFileData,v.Local.sLine(0).Trim,v.Local.sLine(1).Trim,v.Local.sLine(2).Trim,v.Local.sLine(3).Trim,v.Local.sFileData)
+					'if the batch code is 10 then we add to our total, if it is 11 then we subtract
+					f.Intrinsic.Control.If(v.Local.sLine(4),=,10)
+						f.Intrinsic.Math.Add(v.Local.fThirtyOne,v.Local.sLine(3).Float,v.Local.fThirtyOne)
+						f.Intrinsic.Math.Add(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+					f.Intrinsic.Control.Else
+						f.Intrinsic.Math.Sub(v.Local.fThirtyOne,v.Local.sLine(3).Float,v.Local.fThirtyOne)
+						f.Intrinsic.Math.Sub(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+					f.Intrinsic.Control.EndIf
+'				f.Intrinsic.Control.CaseRange(61,90)
+				F.Intrinsic.Control.ElseIf(V.Local.iDays,>=,61,"AND",V.Local.iDays,<=,90)
+					'put invoice number, date_invoice, date_invoice_due, amt_invoice, and 61-90
+					f.Intrinsic.String.Build("{0}$!$*!*{1}*!**!*{2}*!*{3}*!*{4}*!**!**!*{4}*!**!*",v.Local.sFileData,v.Local.sLine(0).Trim,v.Local.sLine(1).Trim,v.Local.sLine(2).Trim,v.Local.sLine(3).Trim,v.Local.sFileData)
+					'if the batch code is 10 then we add to our total, if it is 11 then we subtract
+					f.Intrinsic.Control.If(v.Local.sLine(4),=,10)
+						f.Intrinsic.Math.Add(v.Local.fSixtyOne,v.Local.sLine(3).Float,v.Local.fSixtyOne)
+						f.Intrinsic.Math.Add(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+					f.Intrinsic.Control.Else
+						f.Intrinsic.Math.Sub(v.Local.fSixtyOne,v.Local.sLine(3).Float,v.Local.fSixtyOne)
+						f.Intrinsic.Math.Sub(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+					f.Intrinsic.Control.EndIf
+'				f.Intrinsic.Control.CaseRange(91,120)
+				F.Intrinsic.Control.ElseIf(V.Local.iDays,>=,91,"AND",V.Local.iDays,<=,120)
+					'put invoice number, date_invoice, date_invoice_due, amt_invoice, and 91-120
+					f.Intrinsic.String.Build("{0}$!$*!*{1}*!**!*{2}*!*{3}*!*{4}*!**!**!**!*{4}*!*",v.Local.sFileData,v.Local.sLine(0).Trim,v.Local.sLine(1).Trim,v.Local.sLine(2).Trim,v.Local.sLine(3).Trim,v.Local.sFileData)
+					'if the batch code is 10 then we add to our total, if it is 11 then we subtract
+					f.Intrinsic.Control.If(v.Local.sLine(4),=,10)
+						f.Intrinsic.Math.Add(v.Local.fNinetyOne,v.Local.sLine(3).Float,v.Local.fNinetyOne)
+						f.Intrinsic.Math.Add(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+					f.Intrinsic.Control.Else
+						f.Intrinsic.Math.Sub(v.Local.fNinetyOne,v.Local.sLine(3).Float,v.Local.fNinetyOne)
+						f.Intrinsic.Math.Sub(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+					f.Intrinsic.Control.EndIf
+'				f.Intrinsic.Control.CaseRange(121,999999999999)
+				F.Intrinsic.Control.ElseIf(V.Local.iDays,>=,121)
+					'put invoice number, date_invoice, date_invoice_due, amt_invoice, and >120
+					f.Intrinsic.String.Build("{0}$!$*!*{1}*!**!*{2}*!*{3}*!*{4}*!**!**!**!**!*{4}",v.Local.sFileData,v.Local.sLine(0).Trim,v.Local.sLine(1).Trim,v.Local.sLine(2).Trim,v.Local.sLine(3).Trim,v.Local.sFileData)
+					'if the batch code is 10 then we add to our total, if it is 11 then we subtract
+					f.Intrinsic.Control.If(v.Local.sLine(4),=,10)
+						f.Intrinsic.Math.Add(v.Local.fOver,v.Local.sLine(3).Float,v.Local.fOver)
+						f.Intrinsic.Math.Add(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+					f.Intrinsic.Control.Else
+						f.Intrinsic.Math.Sub(v.Local.fOver,v.Local.sLine(3).Float,v.Local.fOver)
+						f.Intrinsic.Math.Sub(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+					f.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+'			f.Intrinsic.Control.EndSelect
+		f.Intrinsic.Control.Next(v.Local.iView)
+		
+		'now we will create a total for the vendor
+		f.Intrinsic.String.Build("{0}$!$*!**!**!**!*Vendor Totals:*!**!*{1}*!*{2}*!*{3}*!*{4}*!*{5}",v.Local.sFileData,v.Local.fCurrent,v.Local.fThirtyOne,v.Local.fSixtyOne,v.Local.fNinetyOne,v.Local.fOver,v.Local.sFileData)
+		
+		'add the total over to the grand totals
+		f.Intrinsic.Math.Add(v.Local.fCurrent,v.Local.fTCurrent,v.Local.fTCurrent)
+		f.Intrinsic.Math.Add(v.Local.fThirtyOne,v.Local.fTThirtyOne,v.Local.fTThirtyOne)
+		f.Intrinsic.Math.Add(v.Local.fSixtyOne,v.Local.fTSixtyOne,v.Local.fTSixtyOne)
+		f.Intrinsic.Math.Add(v.Local.fNinetyOne,v.Local.fTNinetyOne,v.Local.fTNinetyOne)
+		f.Intrinsic.Math.Add(v.Local.fOver,v.Local.fTOver,v.Local.fTOver)
+		
+		'reset the totals
+		v.Local.fCurrent.Set(0)
+		v.Local.fThirtyOne.Set(0)
+		v.Local.fSixtyOne.Set(0)
+		v.Local.fNinetyOne.Set(0)
+		v.Local.fOver.Set(0)
+		
+		'close the view
+		f.Data.DataView.Close("APOpen",v.Local.sVend(v.Local.iCount).Trim)
+	f.Intrinsic.Control.Next(v.Local.iCount)
+f.Intrinsic.Control.EndIf
+
+f.Data.DataTable.Close("APOpen")
+
+'Add a blank row before teh grand total
+f.Intrinsic.String.Build("{0}$!$*!**!**!**!**!**!**!**!**!**!*",v.Local.sFileData,v.Local.sFileData)
+'Add the Grand total to the bottom
+f.Intrinsic.String.Build("{0}$!$*!**!**!**!*Grand Totals:*!*{6}*!*{1}*!*{2}*!*{3}*!*{4}*!*{5}",v.Local.sFileData,v.Local.fTCurrent,v.Local.fTThirtyOne,v.Local.fTSixtyOne,v.Local.fTNinetyOne,v.Local.fTOver,v.Local.fTotalAmt,v.Local.sFileData)
+
+
+'Create Header
+f.Intrinsic.String.Build("Vendor*!*Invoice Number*!**!*Invoice Date*!*Invoice Due Date*!*Invoice Amount*!*Current*!*31-60*!*61-90*!*91-120*!*Over 120$!${0}",v.Local.sFileData,v.Local.sFileData)
+'Replace 12:00 AM with blanks
+f.Intrinsic.String.Replace(v.Local.sFileData," 12:00:00 AM","",v.Local.sFileData)
+
+'open save file dialog so they can pick their own save location
+f.Intrinsic.UI.ShowSaveFileDialog("","Excel (*.xlsx)|*.xlsx",v.Local.sFileRet)
+
+'split on . and add .xlsx to the end of the file path
+f.Intrinsic.String.Split(v.Local.sFileRet,".",v.Local.sFileRet)
+f.Intrinsic.String.Build("{0}.xlsx",v.Local.sFileRet(0).Trim,v.Local.sFileRet)
+
+'Create the finished spreadsheet
+f.Automation.MSExcel.WriteSpreadsheet(v.Local.sFileRet,v.Local.sFileData)
+
+f.Intrinsic.Control.CallSub(ss_form1_unload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("CreateFile_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4140_AP_Aging_Export.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.CreateFileDetail.End
+
+Program.Sub.CreateFileSummary.Start
+F.Intrinsic.Control.SetErrorHandler("CreateFileSummary_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sAll.Declare(string)
+v.Local.sSQL.Declare(string)
+v.Local.sVend.Declare(string)
+v.Local.iCount.Declare(long)
+v.Local.sFilter.Declare(string)
+v.Local.sFileData.Declare(string)
+V.Local.sVenName.Declare(string)
+v.Local.sView.Declare(string)
+v.Local.iView.Declare(string)
+v.Local.sLine.Declare(string)
+v.Local.iDays.Declare(long)
+v.Local.fCurrent.Declare(float)
+v.Local.fThirtyOne.Declare(float)
+v.Local.fSixtyOne.Declare(float)
+v.Local.fNinetyOne.Declare(float)
+v.Local.fOver.Declare(float)
+v.Local.fTCurrent.Declare(float)
+v.Local.fTThirtyOne.Declare(float)
+v.Local.fTSixtyOne.Declare(float)
+v.Local.fTNinetyOne.Declare(float)
+v.Local.fTOver.Declare(float)
+v.Local.sFileRet.Declare(string)
+V.Local.fTotalAmt.Declare(float)
+v.Local.fSubTotalAmt.Declare(float)
+
+
+'set the passed variable
+v.Local.sAll.Set(v.Args.ALL)
+
+
+'Create the SQL based on all or range
+f.Intrinsic.Control.If(v.Local.sAll,=,"False")
+	f.Intrinsic.String.Build("SELECT VENDOR, INVOICE, BATCH_CODE, DATE_INVOICE, DATE_INVOICE_DUE, AMT_INVOICE FROM V_AP_OPEN_ITEMS  WHERE BATCH_CODE <> '09' AND DATE_BATCH <= '{0}' AND VENDOR BETWEEN '{1}' AND '{2}' ORDER BY VENDOR ASC, DATE_INVOICE_DUE ASC",v.Screen.SS_Form1!dtpCutoff.Value.PervasiveDate,V.Screen.SS_Form1!txtFromV.Text.Trim,v.Screen.SS_Form1!txtToV.Text.Trim,v.Local.sSQL)
+	f.Intrinsic.String.Build("SELECT DISTINCT VENDOR FROM V_AP_OPEN_ITEMS WHERE BATCH_CODE <> '09' AND DATE_BATCH <= '{0}' AND VENDOR BETWEEN '{1}' AND '{2}' ORDER BY VENDOR ASC",v.Screen.SS_Form1!dtpCutoff.Value.PervasiveDate,V.Screen.SS_Form1!txtFromV.Text.Trim,v.Screen.SS_Form1!txtToV.Text.Trim,V.Local.sVend)
+f.Intrinsic.Control.Else
+	f.Intrinsic.String.Build("SELECT VENDOR, INVOICE, BATCH_CODE, DATE_INVOICE, DATE_INVOICE_DUE, AMT_INVOICE FROM V_AP_OPEN_ITEMS  WHERE BATCH_CODE <> '09' AND DATE_BATCH <= '{0}' ORDER BY VENDOR ASC, DATE_INVOICE_DUE ASC",v.Screen.SS_Form1!dtpCutoff.Value.PervasiveDate,v.Local.sSQL)
+	F.Intrinsic.String.Build("SELECT DISTINCT VENDOR FROM V_AP_OPEN_ITEMS WHERE BATCH_CODE <> '09' AND DATE_BATCH <= '{0}' ORDER BY VENDOR ASC",v.Screen.SS_Form1!dtpCutoff.Value.PervasiveDate,V.Local.sVend)
+F.Intrinsic.Control.EndIf
+
+'create the inital datatable
+F.Data.DataTable.CreateFromSQL("APOpen","Con",v.Local.sSQL,true)
+
+'Create an Array of vendors to loop through
+f.ODBC.Connection!Con.ExecuteAndReturn(v.Local.sVend,v.Local.sVend)
+
+'check to make sure we have something in our dictionary
+f.Intrinsic.Control.If(v.Local.sVend.Trim,<>,"")
+	'remove the *!*
+	f.Intrinsic.String.Replace(v.Local.sVend,"*!*","",v.Local.sVend)
+	'split rows
+	f.Intrinsic.String.Split(v.Local.sVend,"#$#",v.Local.sVend)
+	'we are going to loop through our vendors and create views from the APOpen table
+	f.Intrinsic.Control.For(v.Local.iCount,v.Local.sVend.LBound,v.Local.sVend.UBound,1)
+		'get the Vendor name
+		f.Intrinsic.String.Build("SELECT NAME_VENDOR FROM V_VENDOR_MASTER WHERE VENDOR = '{0}' ",V.Local.sVend(V.Local.iCount).Trim,V.Local.sSQL)
+		f.ODBC.Connection!Con.OpenLocalRecordsetRO("rstVen",v.Local.sSQL)
+		f.Intrinsic.Control.If(v.ODBC.Con!rstVen.EOF,=,false)
+			v.Local.sVenName.Set(v.ODBC.Con!rstVen.FieldValTrim!NAME_VENDOR)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.Con!rstVen.Close
+		'Build the header for the group
+'		f.Intrinsic.Control.If(v.Local.sFileData,=,"")
+'			f.Intrinsic.String.Build("{0}*!*{1}*!**!**!**!**!**!**!**!**!*",v.Local.sVend(v.Local.iCount).Trim,v.Local.sVenName,v.Local.sFileData)
+'		f.Intrinsic.Control.Else
+'			f.Intrinsic.String.Build("{0}$!${1}*!*{2}*!**!**!**!**!**!**!**!**!*",V.Local.sFileData,v.Local.sVend(v.Local.iCount).Trim,v.Local.sVenName,v.Local.sFileData)
+'		f.Intrinsic.Control.EndIf
+		'Create a view for individual vendors
+		f.Intrinsic.String.Build("VENDOR = '{0}'",V.Local.sVend(V.Local.iCount).Trim,V.Local.sFilter)
+		f.Data.DataView.Create("APOpen",v.Local.sVend(v.Local.iCount).Trim,22,V.Local.sFilter,"DATE_INVOICE_DUE ASC, BATCH_CODE ASC")
+		'Make the view to string
+		f.Data.DataView.ToString("APOpen",v.Local.sVend(v.Local.iCount).Trim,"INVOICE*!*DATE_INVOICE*!*DATE_INVOICE_DUE*!*AMT_INVOICE*!*BATCH_CODE","*!*","#$#",V.Local.sView)
+		'split the string on row and cycle through them
+		
+
+		f.Intrinsic.String.Split(v.Local.sView,"#$#",v.Local.sView)
+		f.Intrinsic.Control.For(v.Local.iView,v.Local.sView.LBound,v.Local.sView.UBound,1)
+			'split the line out
+			f.Intrinsic.String.Split(v.Local.sView(v.Local.iView),"*!*",v.Local.sLine)
+			v.Local.sLine.RedimPreserve(0,4)
+			'lets calculate which aging bucket it goes into
+			f.Intrinsic.Date.DateDiff("d",v.Local.sLine(2),v.Ambient.Date,v.Local.iDays)
+			'how amount of days determine what bucket it goes into
+'			f.Intrinsic.Control.SelectCase(v.Local.iDays)
+	
+				'between 0 and 30
+'				f.Intrinsic.Control.CaseRange(0,30)
+				f.Intrinsic.Control.If(V.Local.iDays,<=,30)
+					'put invoice number, date_invoice, date_invoice_due, amt_invoice, and current
+'					f.Intrinsic.String.Build("{0}$!$*!*{1}*!**!*{2}*!*{3}*!*{4}*!*{4}*!**!**!**!*",v.Local.sFileData,v.Local.sLine(0).Trim,v.Local.sLine(1).Trim,v.Local.sLine(2).Trim,v.Local.sLine(3).Trim,v.Local.sFileData)
+					'if the batch code is 10 then we add to our total, if it is 11 then we subtract
+					f.Intrinsic.Control.If(v.Local.sLine(4),=,10)
+						f.Intrinsic.Math.Add(v.Local.fCurrent,v.Local.sLine(3).Float,v.Local.fCurrent)
+						f.Intrinsic.Math.Add(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+						f.Intrinsic.Math.Add(v.Local.fSubTotalAmt,v.Local.sLine(3).Float,v.Local.fSubTotalAmt)
+					f.Intrinsic.Control.Else
+						f.Intrinsic.Math.Sub(v.Local.fCurrent,v.Local.sLine(3).Float,v.Local.fCurrent)
+						f.Intrinsic.Math.Sub(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+						f.Intrinsic.Math.Sub(v.Local.fSubTotalAmt,v.Local.sLine(3).Float,v.Local.fSubTotalAmt)
+					f.Intrinsic.Control.EndIf
+'				f.Intrinsic.Control.CaseRange(31,60)
+				F.Intrinsic.Control.ElseIf(V.Local.iDays,>=,31,"AND",V.Local.iDays,<=,60)
+					'put invoice number, date_invoice, date_invoice_due, amt_invoice, and 31-60
+'					f.Intrinsic.String.Build("{0}$!$*!*{1}*!**!*{2}*!*{3}*!*{4}*!**!*{4}*!**!**!*",v.Local.sFileData,v.Local.sLine(0).Trim,v.Local.sLine(1).Trim,v.Local.sLine(2).Trim,v.Local.sLine(3).Trim,v.Local.sFileData)
+					'if the batch code is 10 then we add to our total, if it is 11 then we subtract
+					f.Intrinsic.Control.If(v.Local.sLine(4),=,10)
+						f.Intrinsic.Math.Add(v.Local.fThirtyOne,v.Local.sLine(3).Float,v.Local.fThirtyOne)
+						f.Intrinsic.Math.Add(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+						f.Intrinsic.Math.Add(v.Local.fSubTotalAmt,v.Local.sLine(3).Float,v.Local.fSubTotalAmt)
+					f.Intrinsic.Control.Else
+						f.Intrinsic.Math.Sub(v.Local.fThirtyOne,v.Local.sLine(3).Float,v.Local.fThirtyOne)
+						f.Intrinsic.Math.Sub(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+						f.Intrinsic.Math.Sub(v.Local.fSubTotalAmt,v.Local.sLine(3).Float,v.Local.fSubTotalAmt)
+					f.Intrinsic.Control.EndIf
+'				f.Intrinsic.Control.CaseRange(61,90)
+				F.Intrinsic.Control.ElseIf(V.Local.iDays,>=,61,"AND",V.Local.iDays,<=,90)
+					'put invoice number, date_invoice, date_invoice_due, amt_invoice, and 61-90
+'					f.Intrinsic.String.Build("{0}$!$*!*{1}*!**!*{2}*!*{3}*!*{4}*!**!**!*{4}*!**!*",v.Local.sFileData,v.Local.sLine(0).Trim,v.Local.sLine(1).Trim,v.Local.sLine(2).Trim,v.Local.sLine(3).Trim,v.Local.sFileData)
+					'if the batch code is 10 then we add to our total, if it is 11 then we subtract
+					f.Intrinsic.Control.If(v.Local.sLine(4),=,10)
+						f.Intrinsic.Math.Add(v.Local.fSixtyOne,v.Local.sLine(3).Float,v.Local.fSixtyOne)
+						f.Intrinsic.Math.Add(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+						f.Intrinsic.Math.Add(v.Local.fSubTotalAmt,v.Local.sLine(3).Float,v.Local.fSubTotalAmt)
+					f.Intrinsic.Control.Else
+						f.Intrinsic.Math.Sub(v.Local.fSixtyOne,v.Local.sLine(3).Float,v.Local.fSixtyOne)
+						f.Intrinsic.Math.Sub(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+						f.Intrinsic.Math.Sub(v.Local.fSubTotalAmt,v.Local.sLine(3).Float,v.Local.fSubTotalAmt)
+					f.Intrinsic.Control.EndIf
+'				f.Intrinsic.Control.CaseRange(91,120)
+				F.Intrinsic.Control.ElseIf(V.Local.iDays,>=,91,"AND",V.Local.iDays,<=,120)
+					'put invoice number, date_invoice, date_invoice_due, amt_invoice, and 91-120
+'					f.Intrinsic.String.Build("{0}$!$*!*{1}*!**!*{2}*!*{3}*!*{4}*!**!**!**!*{4}*!*",v.Local.sFileData,v.Local.sLine(0).Trim,v.Local.sLine(1).Trim,v.Local.sLine(2).Trim,v.Local.sLine(3).Trim,v.Local.sFileData)
+					'if the batch code is 10 then we add to our total, if it is 11 then we subtract
+					f.Intrinsic.Control.If(v.Local.sLine(4),=,10)
+						f.Intrinsic.Math.Add(v.Local.fNinetyOne,v.Local.sLine(3).Float,v.Local.fNinetyOne)
+						f.Intrinsic.Math.Add(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+						f.Intrinsic.Math.Add(v.Local.fSubTotalAmt,v.Local.sLine(3).Float,v.Local.fSubTotalAmt)
+					f.Intrinsic.Control.Else
+						f.Intrinsic.Math.Sub(v.Local.fNinetyOne,v.Local.sLine(3).Float,v.Local.fNinetyOne)
+						f.Intrinsic.Math.Sub(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+						f.Intrinsic.Math.Sub(v.Local.fSubTotalAmt,v.Local.sLine(3).Float,v.Local.fSubTotalAmt)
+					f.Intrinsic.Control.EndIf
+'				f.Intrinsic.Control.CaseRange(121,999999999999)
+				F.Intrinsic.Control.ElseIf(V.Local.iDays,>=,121)
+					'put invoice number, date_invoice, date_invoice_due, amt_invoice, and >120
+'					f.Intrinsic.String.Build("{0}$!$*!*{1}*!**!*{2}*!*{3}*!*{4}*!**!**!**!**!*{4}",v.Local.sFileData,v.Local.sLine(0).Trim,v.Local.sLine(1).Trim,v.Local.sLine(2).Trim,v.Local.sLine(3).Trim,v.Local.sFileData)
+					'if the batch code is 10 then we add to our total, if it is 11 then we subtract
+					f.Intrinsic.Control.If(v.Local.sLine(4),=,10)
+						f.Intrinsic.Math.Add(v.Local.fOver,v.Local.sLine(3).Float,v.Local.fOver)
+						f.Intrinsic.Math.Add(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+						f.Intrinsic.Math.Add(v.Local.fSubTotalAmt,v.Local.sLine(3).Float,v.Local.fSubTotalAmt)
+					f.Intrinsic.Control.Else
+						f.Intrinsic.Math.Sub(v.Local.fOver,v.Local.sLine(3).Float,v.Local.fOver)
+						f.Intrinsic.Math.Sub(v.Local.fTotalAmt,v.Local.sLine(3).Float,v.Local.fTotalAmt)
+						f.Intrinsic.Math.Sub(v.Local.fSubTotalAmt,v.Local.sLine(3).Float,v.Local.fSubTotalAmt)
+					f.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+'			f.Intrinsic.Control.EndSelect
+		f.Intrinsic.Control.Next(v.Local.iView)
+		
+		'now we will create a total for the vendor
+		f.Intrinsic.Control.If(v.Local.sFileData.Trim,<>,"")
+			f.Intrinsic.String.Build("{0}$!${1}*!*{2}*!**!**!*Vendor Totals:*!*{3}*!*{4}*!*{5}*!*{6}*!*{7}*!*{8}",v.Local.sFileData,v.Local.sVend(v.Local.iCount).Trim,v.Local.sVenName.Trim,v.Local.fSubTotalAmt,v.Local.fCurrent,v.Local.fThirtyOne,v.Local.fSixtyOne,v.Local.fNinetyOne,v.Local.fOver,v.Local.sFileData)
+		f.Intrinsic.Control.Else
+			f.Intrinsic.String.Build("{0}*!*{1}*!**!**!*Vendor Totals:*!*{2}*!*{3}*!*{4}*!*{5}*!*{6}*!*{7}",v.Local.sVend(v.Local.iCount).Trim,v.Local.sVenName.Trim,v.Local.fSubTotalAmt,v.Local.fCurrent,v.Local.fThirtyOne,v.Local.fSixtyOne,v.Local.fNinetyOne,v.Local.fOver,v.Local.sFileData)
+		f.Intrinsic.Control.EndIf
+		
+		'add the total over to the grand totals
+		f.Intrinsic.Math.Add(v.Local.fCurrent,v.Local.fTCurrent,v.Local.fTCurrent)
+		f.Intrinsic.Math.Add(v.Local.fThirtyOne,v.Local.fTThirtyOne,v.Local.fTThirtyOne)
+		f.Intrinsic.Math.Add(v.Local.fSixtyOne,v.Local.fTSixtyOne,v.Local.fTSixtyOne)
+		f.Intrinsic.Math.Add(v.Local.fNinetyOne,v.Local.fTNinetyOne,v.Local.fTNinetyOne)
+		f.Intrinsic.Math.Add(v.Local.fOver,v.Local.fTOver,v.Local.fTOver)
+		
+		'reset the totals
+		v.Local.fCurrent.Set(0)
+		v.Local.fThirtyOne.Set(0)
+		v.Local.fSixtyOne.Set(0)
+		v.Local.fNinetyOne.Set(0)
+		v.Local.fOver.Set(0)
+		v.Local.fSubTotalAmt.Set(0)
+		
+		'close the view
+		f.Data.DataView.Close("APOpen",v.Local.sVend(v.Local.iCount).Trim)
+	f.Intrinsic.Control.Next(v.Local.iCount)
+f.Intrinsic.Control.EndIf
+
+f.Data.DataTable.Close("APOpen")
+
+'Add a blank row before teh grand total
+f.Intrinsic.String.Build("{0}$!$*!**!**!**!**!**!**!**!**!**!*",v.Local.sFileData,v.Local.sFileData)
+'Add the Grand total to the bottom
+f.Intrinsic.String.Build("{0}$!$*!**!**!**!*Grand Totals:*!*{6}*!*{1}*!*{2}*!*{3}*!*{4}*!*{5}",v.Local.sFileData,v.Local.fTCurrent,v.Local.fTThirtyOne,v.Local.fTSixtyOne,v.Local.fTNinetyOne,v.Local.fTOver,v.Local.fTotalAmt,v.Local.sFileData)
+
+
+'Create Header
+f.Intrinsic.String.Build("Vendor*!*Invoice Number*!**!*Invoice Date*!*Invoice Due Date*!*Invoice Amount*!*Current*!*31-60*!*61-90*!*91-120*!*Over 120$!${0}",v.Local.sFileData,v.Local.sFileData)
+'Replace 12:00 AM with blanks
+f.Intrinsic.String.Replace(v.Local.sFileData," 12:00:00 AM","",v.Local.sFileData)
+
+'open save file dialog so they can pick their own save location
+f.Intrinsic.UI.ShowSaveFileDialog("","Excel (*.xlsx)|*.xlsx",v.Local.sFileRet)
+
+'split on . and add .xlsx to the end of the file path
+f.Intrinsic.String.Split(v.Local.sFileRet,".",v.Local.sFileRet)
+f.Intrinsic.String.Build("{0}.xlsx",v.Local.sFileRet(0).Trim,v.Local.sFileRet)
+
+'Create the finished spreadsheet
+f.Automation.MSExcel.WriteSpreadsheet(v.Local.sFileRet,v.Local.sFileData)
+
+f.Intrinsic.Control.CallSub(ss_form1_unload)
+
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("CreateFileSummary_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4140_AP_Aging_Export.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.CreateFileSummary.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_4140_AP_Aging_Export.g2c$}$Strider$}$7/5/2016 8:17:02 AM$}$False
+${$3$}$0$}$$}$0$}$-1$}$$}$12:00:00 AM$}$This will be a variation of the AP Aging report that will be run from a Custom menu item under Accounts Payable -> Reports -> Accounts Payable Aging Excel.  The user will be required to select an aging Date, a vendor Range or all vendors.  All information in AP Open items will be gathered where the Post date is Prior to the cut off date.  This report will not look at accrual transactions.  
+
+Program.Sub.Comments.End
+
+Program.Sub.ScreenSS.Start
+SS_Form1{{CAPTION::AP Aging Excel
+SS_Form1.CTRL{{NAME::dtpCutoff\\TYPE::6\\CAPTION::Post Date Cutoff\\TABSTOP::1\\GROUP::-1\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::txtFromV\\TYPE::2\\CAPTION::From Vendor\\TABSTOP::2\\GROUP::1\\BROWSER::1\\SIZE::1
+SS_Form1.CTRL{{NAME::txtToV\\TYPE::2\\CAPTION::To Vendor\\TABSTOP::3\\GROUP::1\\BROWSER::1\\SIZE::1
+SS_Form1.CTRL{{NAME::chkAllV\\TYPE::9\\CAPTION::All Vendors\\TABSTOP::4\\GROUP::-1\\SUBGROUP::1\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::ddlReportType\\TYPE::4\\CAPTION::Report Type\\TABSTOP::5\\GROUP::-1\\BROWSER::0\\SIZE::1
+SS_Form1.CTRL{{NAME::cmdOk\\TYPE::5\\CAPTION::Ok\\TABSTOP::6\\GROUP::-1\\BROWSER::0\\SIZE::1
+
+Program.Sub.ScreenSS.End
